@@ -35,15 +35,15 @@ Torque_roll  = Kt*l*((u2^2+u3^2)-(u1^2+u4^2));      % Roll Axis Torque
 Torque_pitch = Kt*l*((u1^2+u2^2)-(u3^2+u4^2));      % Pitch Axis Torque
 Torque_yaw   = Kq*((u1^2+u3^2)-(u2^2+u4^2));        % Yaw Axis Torque
 
-P_Dot = (Torque_roll/Ixx);                          % X Axis Angular Acceleration
-Q_Dot = (Torque_pitch/Iyy);                         % Y Axis Angular Acceleration
-R_Dot = (Torque_yaw/Izz);                           % Z Axis Angular Acceleration
+P_Dot = (Torque_roll/Ixx)+(Iyy/Ixx*x5*x6)-(Izz/Ixx-x5*x6);                          % X Axis Angular Acceleration
+Q_Dot = (Torque_pitch/Iyy)+(Izz/Iyy*x6*x4)-(Ixx/Iyy*x6*x4);                         % Y Axis Angular Acceleration
+R_Dot = (Torque_yaw/Izz)+(Ixx/Izz*x4*x5)-(Iyy/Izz*x4*x5);                           % Z Axis Angular Acceleration
 
 Wbe = [x4;x5;x6];
 
-Ax = -g*x8;                                         % X Axis Linear Acceleration
-Ay =  g*x7;                                         % Y Axis Linear Acceleration
-Az =  g-Total_Thrust/M;                             % Z Axis Linear Acceleration
+Ax = (-Total_Thrust)/M*((sin(x7)*sin(x9))+(cos(x7)*cos(x9)*sin(x8)));               % X Axis Linear Acceleration
+Ay = (-Total_Thrust)/M*((cos(x7)*sin(x9)*sin(x8))-(cos(x9)*cos(x7)));               % Y Axis Linear Acceleration
+Az = g-Total_Thrust/M*(cos(x7)*cos(x8));                                            % Z Axis Linear Acceleration
 
 A = [Ax;Ay;Az];
 
