@@ -18,15 +18,15 @@ u3=u(3);        % Engine Rotational Speed 3
 u4=u(4);        % Engine Rotational Speed 4
 
 g = 9.81;        % Gravity 
-M = 5;           % Drone Mass , Kg
-l = 0.3;         % Arm Lenght , M 
+M =    ;         % Drone Mass , Kg
+l =    ;         % Arm Lenght , M 
 
-Ixx = 0.05;      % Drone X Axis Inertia
-Iyy = 0.05;      % Drone Y Axis Inertia
-Izz = 0.08;      % Drone Z Axis Inertia
+Ixx =     ;      % Drone X Axis Inertia
+Iyy =     ;      % Drone Y Axis Inertia
+Izz =     ;      % Drone Z Axis Inertia
 
-Kt = 0.0002;     % Thrust Coefficient
-Kq = 0.0001;     % Torque Coefficient
+Kt =       ;     % Thrust Coefficient
+Kq =       ;     % Torque Coefficient
 
 %%
 
